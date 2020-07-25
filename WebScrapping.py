@@ -3,8 +3,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
-
 DRIVER_PATH = "/home/suryan0800/suryan/Softwares/chromedriver"
 
 options = Options()
@@ -47,27 +45,3 @@ for i in range(121015000,121015125):
 		pass
 
 driver.quit()
-
-'''
-import requests
-import json
-from bs4 import BeautifulSoup
-payload = {"regno":"121015098",
-			"captcha_code":"",
-			"studentloginbutton":"&#xf2f6  Submit"}
-
-
-with requests.Session() as s:
-	print(s.__dict__['cookies'])
-	res = s.get("https://sas.sastra.edu/cbcsres20/index2.php")
-	print(s.__dict__['cookies'])
-	signin = BeautifulSoup(res._content,"html.parser")
-
-	payload["captcha_code"] = signin.find('span').text
-	print(json.dumps(payload))
-	res1 = s.post("https://sas.sastra.edu/cbcsres20/index2.php",data = "regno=121015098&captcha_code=L9T4M6&studentloginbutton=%EF%8B%B6++Submit")
-
-	print(res1.text)
-
-
-'''
